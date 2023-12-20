@@ -100,10 +100,6 @@ input {
   padding: 1rem 2.4rem;
 }
 
-.actions button:hover {
-  filter: brightness(0.7);
-}
-
 .list ul {
   list-style: none;
   width: 80%;
@@ -147,4 +143,46 @@ input[type='checkbox'] {
   text-align: center;
   font-weight: 700;
   padding: 3.2rem 0;
+}
+
+.popup-container {
+  z-index: 1;
+  display: flex;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.pop-up {
+  position: absolute;
+
+  background-color: #f4a226;
+  padding: 2rem;
+  border-radius: 2rem;
+  margin: auto;
+}
+
+.pop-up p {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.pop-up div {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.pop-up button:first-of-type {
+  background-color: #d7122f;
+  color: #ffebb3;
+}
+
+.pop-up button:hover,
+.actions button:hover {
+  filter: brightness(0.85);
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 function App() {
   const [items, setItems] = useState([]);
+  const [popUpDisplay, setPopUpDisplay] = useState(false);
 
   function handleAddItems(item) {
     setItems((items) => [...items, item]);
@@ -20,7 +21,16 @@ function App() {
   }
 
   function handleClearList() {
+    if (items.length) setPopUpDisplay(true);
+  }
+
+  function handleConfirmClearList() {
     setItems([]);
+    setPopUpDisplay(false);
+  }
+
+  function handleCancelClearList() {
+    setPopUpDisplay(false);
   }
 
   return (
@@ -34,6 +44,12 @@ function App() {
         onClearItems={handleClearList}
       />
       <Stats items={items} />
+      {popUpDisplay && (
+        <ClearPopUp
+          onConfirmClear={handleConfirmClearList}
+          onCancelClear={handleCancelClearList}
+        />
+      )}
     </div>
   );
 }
@@ -140,6 +156,21 @@ function PackingList({
         </div>
       </div>
     </>
+  );
+}
+
+function ClearPopUp({ onConfirmClear, onCancelClear }) {
+  return (
+    <div className='popup-container'>
+      <div className='pop-up'>
+        <h3>Clear List</h3>
+        <p>All items in the list will be permanently removed.</p>
+        <div className='actions'>
+          <button onClick={onConfirmClear}>clear</button>
+          <button onClick={onCancelClear}>cancel</button>
+        </div>
+      </div>
+    </div>
   );
 }
 
