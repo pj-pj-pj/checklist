@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
 * {
   margin: 0;
@@ -28,13 +29,14 @@ body {
 h1 {
   text-align: center;
   background-color: #f4a226;
-  font-family: 'Monoton';
+  font-family: inherit;
   font-size: 8rem;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 700;
   word-spacing: 30px;
   letter-spacing: -5px;
   padding: 2.4rem 0;
+  white-space: nowrap;
 }
 
 .add-form {
@@ -46,8 +48,12 @@ h1 {
   gap: 0.8rem;
 }
 
+.add-form div {
+  display: flex;
+  gap: 1rem;
+}
+
 h3 {
-  margin-right: 1.6rem;
   font-size: 2.4rem;
 }
 
@@ -157,16 +163,13 @@ input[type='checkbox'] {
 }
 
 .pop-up {
-  position: absolute;
-
   background-color: #f4a226;
-  padding: 2rem;
+  padding: 1.8rem;
   border-radius: 2rem;
-  margin: auto;
+  flex-shrink: 3;
 }
 
 .pop-up p {
-  text-align: center;
   font-size: 1.8rem;
   margin-bottom: 2.5rem;
 }
@@ -185,4 +188,46 @@ input[type='checkbox'] {
 .pop-up button:hover,
 .actions button:hover {
   filter: brightness(0.85);
+}
+
+@media only screen and (max-width: 899px) {
+  body {
+    h1 {
+      font-size: 10vw;
+    }
+
+    .add-form {
+      flex-direction: column;
+      padding: 2rem 0;
+    }
+
+    .add-form h3 {
+      font-size: 2rem;
+    }
+
+    button,
+    select,
+    input {
+      font-family: inherit;
+      border: none;
+      border-radius: 2rem;
+      padding: 0.9rem 1.7rem;
+      font-weight: 700;
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+
+    .stats {
+      padding: 1.8rem 1rem;
+    }
+
+    .pop-up {
+      max-width: 345px;
+    }
+
+    .pop-up p {
+      font-size: 1.7rem;
+      margin-bottom: 1.5rem;
+    }
+  }
 }
